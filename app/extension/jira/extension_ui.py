@@ -16,7 +16,7 @@ def app_specific_action_currency_table(webdriver, datasets):
         @print_timing("selenium_app_custom_action:view_currency_table")
         def sub_measure():
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/jira/secure/Currency!default.jspa")
-            page.wait_until_visible((By.ID, "project-cost-currency-table-spinner"))
+            page.wait_until_visible((By.ID, "project-cost-currency-table"))
         sub_measure()
     measure()
 
@@ -29,7 +29,7 @@ def app_specific_action_cost_category_table(webdriver, datasets):
         @print_timing("selenium_app_custom_action:cost_category_table")
         def sub_measure():
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/jira/secure/IssueCostCategory!default.jspa")
-            page.wait_until_visible((By.ID, "cost-category-table-spinner"))
+            page.wait_until_visible((By.ID, "categories-table"))
         sub_measure()
     measure()
 
@@ -42,7 +42,7 @@ def app_specific_action_project_cost_report(webdriver, datasets):
         @print_timing("selenium_app_custom_action:project_cost_report")
         def sub_measure():
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/jira/secure/ProjectCostReport!default.jspa")
-            page.wait_until_visible((By.ID, "project-cost-report-spinner"))
+            page.wait_until_visible((By.ID, "project-cost-report-table"))
         sub_measure()
     measure()
 
@@ -55,19 +55,21 @@ def app_specific_action_permission_form(webdriver, datasets):
         @print_timing("selenium_app_custom_action:permission_form")
         def sub_measure():
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/jira/secure/Permissions!default.jspa")
-            page.wait_until_visible((By.ID, "pcfj-permissions-form-container"))
+            page.wait_until_visible((By.ID, "project-cost-permission-form"))
         sub_measure()
     measure()
 
 
 def app_specific_action_issue_cost_details(webdriver, datasets):
     page = BasePage(webdriver)
+    if datasets['custom_issues']:
+        issue_key = datasets['custom_issue_key']
 
-    @print_timing("selenium_app_custom_action_permission_form")
+    @print_timing("selenium_app_custom_action_issue_cost_details")
     def measure():
-        @print_timing("selenium_app_custom_action:permission_form")
+        @print_timing("selenium_app_custom_action:issue_cost_details")
         def sub_measure():
-            page.go_to_url(f"{JIRA_SETTINGS.server_url}/jira/secure/browse/SIP-25")
+            page.go_to_url(f"{JIRA_SETTINGS.server_url}/jira/browse/" + issue_key)
             page.wait_until_visible((By.ID, "issue-cost-details"))
         sub_measure()
     measure()

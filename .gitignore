@@ -10,3 +10,5 @@ outputs/
 *.pyc
 local_*.yml
 **jmeter.properties
+app/datasets/jira/*.csv
+app/datasets/jira/examples/*.csv
