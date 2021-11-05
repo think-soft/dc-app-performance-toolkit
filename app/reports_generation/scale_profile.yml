@@ -3,14 +3,14 @@ column_name: "90% Line"
 runs:
   # fullPath should contain a full path to the directory with run results. E.g. /home/$USER/dc-app-performance-toolkit/jira/results/2019-08-06_18-41-08
   - runName: "1 Node"
-    fullPath: ""
+    fullPath: "C:/Users/Hadia/Documents/Performance Test/dc-app-performance-toolkit/app/results/jira/2021-09-22_23-24-07"
   - runName: "2 Nodes"
-    fullPath: ""
+    fullPath: "C:/Users/Hadia/Documents/Performance Test/dc-app-performance-toolkit/app/results/jira/2021-09-21_22-53-29"
   - runName: "4 Nodes"
-    fullPath: ""
+    fullPath: "C:/Users/Hadia/Documents/Performance Test/dc-app-performance-toolkit/app/results/jira/2021-09-22_22-09-35"
 
 # Chart generation configs
 index_col: "Action"
-title: "DCAPT Scale Testing"
+title: "PCFJ Scale Testing"
 image_height_px: 1000
 image_width_px: 1600
