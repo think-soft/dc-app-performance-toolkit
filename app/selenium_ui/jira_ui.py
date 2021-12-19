@@ -62,24 +62,24 @@ Refer to `app/selenium_ui/jira/modules.py` for examples.
 """
 
 
-# def test_1_selenium_custom_action_currency_table(jira_webdriver, jira_datasets, jira_screen_shots):
-#     extension_ui.app_specific_action_currency_table(jira_webdriver, jira_datasets)
-#
-#
-# def test_1_selenium_custom_action_cost_category_table(jira_webdriver, jira_datasets, jira_screen_shots):
-#     extension_ui.app_specific_action_cost_category_table(jira_webdriver, jira_datasets)
-#
-#
-# def test_1_selenium_custom_action_project_cost_report(jira_webdriver, jira_datasets, jira_screen_shots):
-#     extension_ui.app_specific_action_project_cost_report(jira_webdriver, jira_datasets)
-#
-#
-# def test_1_selenium_custom_action_permission_form(jira_webdriver, jira_datasets, jira_screen_shots):
-#     extension_ui.app_specific_action_permission_form(jira_webdriver, jira_datasets)
-#
-#
-# def test_1_selenium_custom_action_issue_cost_details(jira_webdriver, jira_datasets, jira_screen_shots):
-#     extension_ui.app_specific_action_issue_cost_details(jira_webdriver, jira_datasets)
+def test_1_selenium_custom_action_currency_table(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_currency_table(jira_webdriver, jira_datasets)
+
+
+def test_1_selenium_custom_action_cost_category_table(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_cost_category_table(jira_webdriver, jira_datasets)
+
+
+def test_1_selenium_custom_action_project_cost_report(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_project_cost_report(jira_webdriver, jira_datasets)
+
+
+def test_1_selenium_custom_action_permission_form(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_permission_form(jira_webdriver, jira_datasets)
+
+
+def test_1_selenium_custom_action_issue_cost_details(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_issue_cost_details(jira_webdriver, jira_datasets)
 
 
 # this action should be the last one
