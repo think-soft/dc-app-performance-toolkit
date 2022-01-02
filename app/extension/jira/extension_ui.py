@@ -53,7 +53,7 @@ def app_specific_action_minutes_of_meeting(webdriver, datasets):
         @print_timing("selenium_app_custom_action:minutes_of_meeting")
         def sub_measure():
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/browse/" + issue_key)
-            page.wait_until_visible((By.ID, "issue-minutes-of-meeting-container"))
+            page.wait_until_visible((By.ID, "issue-minutes-of-meetings-container"))
         sub_measure()
     measure()
 
