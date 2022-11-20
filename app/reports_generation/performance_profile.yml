@@ -4,14 +4,14 @@ runs:
   # fullPath should contain a full path to the directory with run results. E.g. /home/$USER/dc-app-performance-toolkit/app/results/jira/2019-08-06_17-41-08
   - runName: "without app"
     runType: "baseline"
-    fullPath: ""
+    fullPath: "C:/Users/Hadia/Documents/Performance Test/dc-app-performance-toolkit/app/results/jira/2022-11-19_20-09-56"
   - runName: "with app"
     runType: "experiment"
-    fullPath: ""
+    fullPath: "C:/Users/Hadia/Documents/Performance Test/dc-app-performance-toolkit/app/results/jira/2022-11-20_09-06-17"
 
 # Chart generation config
 index_col: "Action"
-title: "DCAPT Performance Testing"
+title: "Projects Contaact Performance Testing"
 image_height_px: 1000
 image_width_px: 1600
 judge: false
