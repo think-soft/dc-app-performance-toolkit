@@ -42,3 +42,116 @@ def app_specific_action(webdriver, datasets):
         sub_measure()
     measure()
 
+
+def app_specific_action_view_admin_contacts_table(webdriver, datasets):
+    page = BasePage(webdriver)
+
+    @print_timing("app_specific_action_view_admin_contacts_table")
+    def measure():
+        @print_timing("selenium_app_custom_action:view_admin_contacts_table")
+        def sub_measure():
+            page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/ContactsBook!default.jspa")
+            page.wait_until_visible((By.ID, "contacts-book-table-body"))
+
+        sub_measure()
+
+    measure()
+
+
+def app_specific_action_view_issue_contacts_table(webdriver, datasets):
+    page = BasePage(webdriver)
+    if datasets['custom_issues']:
+        issue_key = datasets['custom_issue_key']
+
+    @print_timing("app_specific_action_view_issue_contacts_table")
+    def measure():
+        @print_timing("selenium_app_custom_action:view_issue_contacts_table")
+        def sub_measure():
+            page.go_to_url(f"{JIRA_SETTINGS.server_url}/browse/" + issue_key)
+            page.get_element((By.ID, "ts-contacts-tabpanel")).click()
+            page.wait_until_visible((By.ID, "contacts-table-body"))
+
+        sub_measure()
+
+    measure()
+
+
+def app_specific_action_add_issue_contact(webdriver, datasets):
+    page = BasePage(webdriver)
+    if datasets['custom_issues']:
+        issue_key = datasets['custom_issue_key']
+
+    @print_timing("app_specific_action_add_issue_contact")
+    def measure():
+        @print_timing("selenium_app_custom_action:add_issue_contact")
+        def sub_measure():
+            page.go_to_url(f"{JIRA_SETTINGS.server_url}/browse/" + issue_key)
+            page.wait_until_visible((By.ID, "ts-add-contact-button"))
+            page.get_element((By.ID, "ts-add-contact-button")).click()
+            page.wait_until_visible((By.ID, "add-new-contact-dialog"))
+            page.get_element((By.ID, "first-name")).text == "First Name"
+            page.get_element((By.ID, "last-name")).text == "Last Name"
+            page.get_element((By.ID, "default-phone-number-code")).text == "+961"
+            page.get_element((By.ID, "default-phone-number")).text == "76853593"
+            page.get_element((By.ID, "email")).text == "thinksoft@thinksoft.live"
+            page.get_element((By.ID, "add-contact-submit")).click()
+            page.wait_until_visible((By.ID, "view-hide-company-info"))
+            page.get_element((By.ID, "company-name")).text == "Company Name"
+            page.get_element((By.ID, "add-contact-submit")).click()
+
+        sub_measure()
+
+    measure()
+
+
+def app_specific_action_view_project_contact(webdriver, datasets):
+    page = BasePage(webdriver)
+
+    @print_timing("app_specific_action_view_project_contact")
+    def measure():
+        @print_timing("selenium_app_custom_action:view_project_contact")
+        def sub_measure():
+            page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/ProjectContacts!default.jspa?projectKey=AAPTS")
+            page.wait_until_visible((By.ID, "contacts-project-table-body"))
+
+        sub_measure()
+
+    measure()
+
+
+def app_specific_action_view_unlinked_project_contacts(webdriver, datasets):
+    page = BasePage(webdriver)
+
+    @print_timing("app_specific_action_view_unlinked_project_contacts")
+    def measure():
+        @print_timing("selenium_app_custom_action:view_unlinked_project_contacts")
+        def sub_measure():
+            page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/ProjectContacts!default.jspa?projectKey=AAPTS")
+            page.wait_until_visible((By.ID, "project-contacts-actions"))
+            page.get_element((By.ID, "project-contacts-actions")).click()
+            page.get_element((By.ID, "ts-view-unlinked-contacts-buttons")).click()
+            page.wait_until_visible((By.ID, "link-contacts-to-issue-dialog"))
+            page.get_element((By.ID, "link-contacts-to-issue-dialog-close-button")).click()
+
+        sub_measure()
+
+    measure()
+
+
+def app_specific_action_delete_project_contact(webdriver, datasets):
+    page = BasePage(webdriver)
+
+    @print_timing("app_specific_action_delete_project_contact")
+    def measure():
+        @print_timing("selenium_app_custom_action:delete_project_contact")
+        def sub_measure():
+            page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/ProjectContacts!default.jspa?projectKey=AAPTS")
+            page.wait_until_visible((By.ID, "contacts-project-table-body"))
+            page.wait_until_visible((By.ID, "project-contacts-delete-button-2"))
+            page.get_element((By.ID, "project-contacts-delete-button-2")).click()
+            page.wait_until_visible((By.ID, "delete-contact-confirmation-dialog"))
+            page.get_element((By.ID, "delete-contact-dialog-submit-button")).click()
+
+        sub_measure()
+
+    measure()
