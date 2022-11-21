@@ -87,7 +87,6 @@ def app_specific_action_add_issue_contact(webdriver, datasets):
         def sub_measure():
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/browse/" + issue_key)
             page.wait_until_visible((By.ID, "ts-add-contact-button"))
-            page.get_element((By.ID, "ts-add-contact-button")).click()
             # page.wait_until_visible((By.ID, "add-new-contact-dialog"))
             # page.get_element((By.ID, "first-name")).text == "First Name"
             # page.get_element((By.ID, "last-name")).text == "Last Name"
