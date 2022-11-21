@@ -74,20 +74,20 @@ def test_1_selenium_view_issue_contacts_table(jira_webdriver, jira_datasets, jir
     extension_ui.app_specific_action_view_issue_contacts_table(jira_webdriver, jira_datasets)
 
 
+def test_1_selenium_view_unlinked_project_contacts(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_view_unlinked_project_contacts(jira_webdriver, jira_datasets)
+
+
+def test_1_selenium_view_project_contacts(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.app_specific_action_view_project_contacts(jira_webdriver, jira_datasets)
+
+
 def test_1_selenium_add_issue_contact(jira_webdriver, jira_datasets, jira_screen_shots):
     extension_ui.app_specific_action_add_issue_contact(jira_webdriver, jira_datasets)
 
 
-def test_1_selenium_view_unlinked_project_contact(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_view_unlinked_project_contacts(jira_webdriver, jira_datasets)
-
-
-def test_1_selenium_view_project_contact(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_view_project_contact(jira_webdriver, jira_datasets)
-
-
-def test_1_selenium_delete_project_contact(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.app_specific_action_delete_project_contact(jira_webdriver, jira_datasets)
+# def test_1_selenium_delete_project_contact(jira_webdriver, jira_datasets, jira_screen_shots):
+#     extension_ui.app_specific_action_delete_project_contact(jira_webdriver, jira_datasets)
 
 
 # this action should be the last one
