@@ -1,4 +1,29 @@
-app-specific action: bzt jira.yml
-JMeter app-specific action: python util/jmeter/start_jmeter_ui.py --app jira
-Performance Report Generation: python csv_chart_generator.py performance_profile.yml
-Scale Report Generation: python csv_chart_generator.py scale_profile.yml
+app-specific action : bzt jira.yml
+JMeter app-specific action : python util/jmeter/start_jmeter_ui.py --app jira
+Performance Report Generation : python csv_chart_generator.py performance_profile.yml
+Scale Report Generation : python csv_chart_generator.py scale_profile.yml
+Security Report :
+    <profiles>
+        <profile>
+            <id>owasp-dependency-check</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.owasp</groupId>
+                        <artifactId>dependency-check-maven</artifactId>
+                        <version>7.3.2</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    mvn clean install -Powasp-dependency-check
+Maven dependency tree
+    mvn dependency:tree -DappendOutput=true -DoutputType=dot -DoutputFile=maven_dependency_tree.gv
